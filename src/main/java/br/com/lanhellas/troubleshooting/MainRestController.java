@@ -56,13 +56,16 @@ public class MainRestController {
     private void startLeaking() {
         try {
             StringBuilder input = new StringBuilder();
-            URLConnection conn = new URL("http://www.google.com.br").openConnection();
+            URLConnection conn = new URL("https://github.com/rlanhellas/troubleshooting-java").openConnection();
 
             BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8));
 
             while (br.readLine() != null) {
                 input.append(br.readLine());
             }
+
+//            br.close();
+
         } catch (Exception e) {
             startLeaking();
         }
